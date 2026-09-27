@@ -26,6 +26,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
+    /* FIX: Cho phép cuộn dọc trên điện thoại */
     body {
       background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 100%);
       color: var(--text);
@@ -33,12 +34,13 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
-      overflow: hidden;
+      padding: 20px 12px;
+      overflow-x: hidden;
+      overflow-y: auto;
       position: relative;
     }
 
-    /* Interactive Sparkle Cursor Canvas */
+    /* Canvas con trỏ chuột */
     #cursor-canvas {
       position: fixed;
       top: 0;
@@ -49,7 +51,7 @@
       z-index: 9999;
     }
 
-    /* Animated Background Bubbles */
+    /* Background Bubbles */
     .bg-bubbles {
       position: fixed;
       top: 0;
@@ -81,11 +83,12 @@
       background: var(--card-bg);
       backdrop-filter: blur(16px);
       border-radius: 28px;
-      padding: 36px;
+      padding: 32px 24px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.2);
       border: 1px solid var(--border);
       position: relative;
       z-index: 1;
+      margin: auto;
     }
 
     .screen {
@@ -119,16 +122,15 @@
       font-size: 1.05rem;
     }
 
-    /* FIX: Căn đều 2 bên (Justify) cho đoạn thoại trong khung */
     .dialog-box {
       background: rgba(15, 23, 42, 0.85);
       border-left: 5px solid var(--primary);
-      padding: 22px;
+      padding: 20px;
       border-radius: 16px;
       text-align: justify;
       margin-bottom: 28px;
       width: 100%;
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.8;
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
       border-top: 1px solid var(--border);
@@ -140,8 +142,8 @@
       background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
       color: white;
       border: none;
-      padding: 14px 32px;
-      font-size: 1.05rem;
+      padding: 14px 28px;
+      font-size: 1rem;
       font-weight: 700;
       border-radius: 16px;
       cursor: pointer;
@@ -158,17 +160,18 @@
 
     .reagents-panel {
       display: flex;
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 12px;
+      margin-bottom: 28px;
       justify-content: center;
       width: 100%;
+      flex-wrap: wrap;
     }
 
     .reagent-btn {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 22px;
+      gap: 8px;
+      padding: 12px 20px;
       background: rgba(15, 23, 42, 0.7);
       border: 2px solid var(--border);
       border-radius: 16px;
@@ -184,15 +187,16 @@
       background: rgba(236, 72, 153, 0.25);
       color: #fff;
       box-shadow: 0 0 18px rgba(236, 72, 153, 0.6);
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
+    /* FIX: Tối ưu hàng chứa 3 bình thí nghiệm */
     .beakers-container {
       display: flex;
-      justify-content: space-around;
-      gap: 20px;
+      justify-content: center;
+      gap: 16px;
       width: 100%;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
@@ -200,10 +204,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1;
-      min-width: 210px;
+      flex: 1 1 200px;
+      max-width: 100%;
       background: rgba(15, 23, 42, 0.65);
-      padding: 24px;
+      padding: 20px 16px;
       border-radius: 20px;
       border: 1px solid var(--border);
       position: relative;
@@ -232,16 +236,16 @@
     }
 
     .flask {
-      width: 90px;
-      height: 110px;
+      width: 80px;
+      height: 100px;
       position: relative;
       cursor: pointer;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       transition: transform 0.2s ease;
     }
 
     .flask:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .flask-svg {
@@ -275,15 +279,15 @@
 
     .beaker-label {
       font-weight: 800;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
       color: #fff;
     }
 
     .beaker-note {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      min-height: 48px;
+      min-height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -322,18 +326,18 @@
     .modal-content {
       background: #1e293b;
       border: 1px solid var(--border);
-      padding: 36px;
+      padding: 28px 20px;
       border-radius: 24px;
-      max-width: 480px;
+      max-width: 440px;
       width: 100%;
       text-align: center;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(236, 72, 153, 0.3);
     }
 
     .modal-content p {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       color: #fff;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 600;
     }
 
@@ -344,15 +348,46 @@
       align-items: center;
       text-align: center;
       white-space: pre-line;
-      line-height: 2;
+      line-height: 1.9;
       color: #f1f5f9;
-      font-size: 1.05rem;
+      font-size: 1rem;
       background: rgba(15, 23, 42, 0.85);
-      padding: 32px 24px;
+      padding: 28px 18px;
       border-radius: 20px;
       border: 1px solid rgba(236, 72, 153, 0.35);
       box-shadow: inset 0 0 15px rgba(236, 72, 153, 0.15);
       width: 100%;
+    }
+
+    /* CSS RIÊNG CHO ĐIỆN THOẠI (Mobile Responsive) */
+    @media (max-width: 640px) {
+      .container {
+        padding: 24px 16px;
+      }
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      .beakers-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .beaker-card {
+        width: 100%;
+        max-width: 320px;
+      }
+      .reagents-panel {
+        flex-direction: row;
+      }
+      .reagent-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 0.88rem;
+      }
+      .btn {
+        width: 100%;
+        padding: 14px 20px;
+      }
     }
   </style>
 </head>
@@ -448,7 +483,7 @@
 
     <!-- Final Letter Screen -->
     <div id="screen-letter" class="screen">
-      <h2 style="color: var(--primary); margin-bottom: 24px; font-size: 1.8rem; text-shadow: 0 0 15px rgba(236,72,153,0.6);">ĐÚNG RÒI NÈ, ĐÚNG RÒI NÈ, BINGOO 🎉💖</h2>
+      <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 1.6rem; text-shadow: 0 0 15px rgba(236,72,153,0.6);">ĐÚNG RÒI NÈ, ĐÚNG RÒI NÈ, BINGOO 🎉💖</h2>
       <div class="letter-content">Chúc Bình luôn dethuong như hằng số tốc độ ánh sáng
 Có sức khỏe tựa gia tốc trọng trường trên bề mặt Trái Đất
 Learning journey như các công trình của Faraday và Maxwell
@@ -510,6 +545,15 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
       }
     }
 
+    // Chạm ngón tay trên điện thoại cũng tỏa ngôi sao
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        for (let i = 0; i < 2; i++) {
+          particles.push(new Particle(e.touches[0].clientX, e.touches[0].clientY));
+        }
+      }
+    });
+
     window.addEventListener('mousemove', (e) => {
       for (let i = 0; i < 2; i++) {
         particles.push(new Particle(e.clientX, e.clientY));
@@ -517,7 +561,7 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
     });
 
     window.addEventListener('click', (e) => {
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 12; i++) {
         particles.push(new Particle(e.clientX, e.clientY, '#ec4899'));
       }
     });
@@ -538,10 +582,10 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
 
     /* Background Floating Bubbles */
     const bubblesContainer = document.getElementById('bubbles-container');
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 20; i++) {
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
-      const size = Math.random() * 40 + 10;
+      const size = Math.random() * 35 + 10;
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
       bubble.style.left = `${Math.random() * 100}%`;
@@ -562,6 +606,7 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
     function goToScreen(screenId) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById(screenId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function startLab() {
