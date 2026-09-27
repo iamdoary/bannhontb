@@ -336,19 +336,24 @@
       font-weight: 600;
     }
 
-    /* Căn giữa toàn bộ nội dung bức thư */
+    /* FIX: Căn giữa tuyệt đối cả dọc lẫn ngang cho lời chúc */
     .letter-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       white-space: pre-line;
       line-height: 2;
       color: #f1f5f9;
       font-size: 1.05rem;
       background: rgba(15, 23, 42, 0.85);
-      padding: 32px 24px;
+      padding: 40px 24px;
       border-radius: 20px;
       border: 1px solid rgba(236, 72, 153, 0.35);
       box-shadow: inset 0 0 15px rgba(236, 72, 153, 0.15);
       width: 100%;
+      min-height: 380px;
     }
   </style>
 </head>
@@ -467,9 +472,7 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
   </div>
 
   <script>
-    /* ==========================================
-       Interactive Sparkle Cursor Trail Animation
-       ========================================== */
+    /* Interactive Sparkle Cursor Trail Animation */
     const canvas = document.getElementById('cursor-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -536,9 +539,7 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
     }
     animateParticles();
 
-    /* ==========================================
-       Background Floating Bubbles
-       ========================================== */
+    /* Background Floating Bubbles */
     const bubblesContainer = document.getElementById('bubbles-container');
     for (let i = 0; i < 25; i++) {
       const bubble = document.createElement('div');
@@ -552,9 +553,7 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
       bubblesContainer.appendChild(bubble);
     }
 
-    /* ==========================================
-       Lab Logic & State Management
-       ========================================== */
+    /* Lab Logic & State Management */
     let selectedReagent = null;
     let testedState = {
       A: { H2SO4: false, NaOH: false },
