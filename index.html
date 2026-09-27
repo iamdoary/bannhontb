@@ -26,7 +26,6 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* FIX: Cho phép cuộn dọc trên điện thoại */
     body {
       background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 100%);
       color: var(--text);
@@ -40,7 +39,6 @@
       position: relative;
     }
 
-    /* Canvas con trỏ chuột */
     #cursor-canvas {
       position: fixed;
       top: 0;
@@ -51,7 +49,6 @@
       z-index: 9999;
     }
 
-    /* Background Bubbles */
     .bg-bubbles {
       position: fixed;
       top: 0;
@@ -190,7 +187,6 @@
       transform: scale(1.03);
     }
 
-    /* FIX: Tối ưu hàng chứa 3 bình thí nghiệm */
     .beakers-container {
       display: flex;
       justify-content: center;
@@ -359,7 +355,6 @@
       width: 100%;
     }
 
-    /* CSS RIÊNG CHO ĐIỆN THOẠI (Mobile Responsive) */
     @media (max-width: 640px) {
       .container {
         padding: 24px 16px;
@@ -415,13 +410,13 @@
       <div class="dialog-box">
         Tui có 3 bình dung dịch mất nhãn tự đánh dấu là A, B, C. Trong đó có 2 bình hóa chất thật theo như dự đoán là Phenolphthalein và Methyl Orange và 1 bình chứa dung dịch hết sức "kỳ lạ". Bình dùng 2 thuốc thử là H2SO4 với NaOH để tìm ra bình "kỳ lạ" đó giúp tui với nha
       </div>
-      <button class="btn" onclick="startLab()">Vô đi, đọc nhiu hết giờ</button>
+      <button class="btn" onclick="startLab()">Vô đi, đọc nhiu đây hết giờ</button>
     </div>
 
     <!-- Lab Testing Screen -->
     <div id="screen-lab" class="screen">
       <h2>Tiến Hành Thử Dung Dịch 🧫</h2>
-      <p>Chọn thuốc thử bên dưới, sau đó click vào bình để thử phản ứng nha!</p>
+      <p>Cho tất các chất nhận biết tác dụng với tất cả các bình ròi mí chọn bình được nhaa</p>
 
       <div class="reagents-panel">
         <button id="btn-h2so4" class="reagent-btn" onclick="selectReagent('H2SO4')">
@@ -545,7 +540,6 @@ Cuối cùng… chúc bạn nhỏ đang đọc những lời này có một ngà
       }
     }
 
-    // Chạm ngón tay trên điện thoại cũng tỏa ngôi sao
     window.addEventListener('touchmove', (e) => {
       if (e.touches.length > 0) {
         for (let i = 0; i < 2; i++) {
